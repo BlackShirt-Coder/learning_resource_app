@@ -3,7 +3,7 @@
     <base-card>
       <div style="display:flex;justify-content: space-between;">
         <h2>{{ title }}</h2>
-        <base-button type="submit" class="flat">Delete</base-button>
+        <base-button type="submit" class="flat" @click="removeResource(id)">Delete</base-button>
       </div>
       <p>{{ description }}</p>
       <nav>
@@ -17,8 +17,8 @@
 <script>
 
 export default {
-  props: ['title', 'link', 'description'],
-
+  props: ['id','title', 'link', 'description'],
+  inject:['removeResource']
 };
 </script>
 

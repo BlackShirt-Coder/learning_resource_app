@@ -38,7 +38,8 @@ export default {
     provide() {
         return {
             resources: this.storeResources,
-            addResource: this.saveData
+            addResource: this.saveData,
+            removeResource:this.deleteResource,
         }
     },
     components: { StoreResources, AddResource },
@@ -57,6 +58,15 @@ export default {
             this.storeResources.unshift(newData);
             this.selectedTab = 'store-resources';
 
+        },
+        deleteResource(id){
+          const resIndex=  this.storeResources.findIndex((resource)=>{
+                 return  resource.id===id;
+                 
+            });
+        
+            this.storeResources.splice(resIndex,1);
+          
         }
 
     },
